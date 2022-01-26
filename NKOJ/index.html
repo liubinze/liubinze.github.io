@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>系统首页 | CQNK</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/Styles/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Styles/Site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Styles/Site-opaque.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/Styles/prism.css" rel="stylesheet" />
+
+    <meta name="author" content="alpc104@gmail.com">
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+    <meta charset="utf-8">
+    <meta http-equiv="content-language" content="zh-CN" />
+    <meta name="viewport" content="width=device-width,inital-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=0;" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="no" />
+    <meta name="MobileOptimized" content="240">
+    <meta name="HandheldFriendly" content="true">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <script src="/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="/Scripts/jquery.validate.min.js"></script>
+    <script src="/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+</head>
+
+<body class="language-cpp" style="">
+    <!--页面左部-->
+    <!--左上部 开始-->
+    <div class=" left_upper_frame">
+        <!--用户信息栏 开始-->
+        <div class="panel panel-default panel-transparent"
+             style="-webkit-box-shadow: none; box-shadow: none; margin-bottom: 0;">
+            <div class="panel-body" style="margin: 0; padding: 10px 0 10px 12px; display:inline-block">
+
+                <div style="float: left;">
+                    <a href="/zh/Account/Login">
+                        <img class="media-object img-transparent-link"
+                             src="/Content/Images/Avatars/Default.png" alt=""
+                             style="width: 50px; height: 50px; max-width:50px; max-height:50px;" />
+                    </a>
+                </div>
+                <div style="float: left; padding: 4px; margin-left: 6px;">
+                    <div class="label_name" style="width: 105px; margin-bottom: 5px; cursor: default">
+                            <span>TouchStone</span>
+                    </div>
+                    <div style="float: left; text-align: left; color: #aaa; padding-left: 2px;">
+                            <span class="glyphicon glyphicon-warning-sign"></span>&nbsp;&nbsp;请登录后使用
+                    </div>
+                </div>
+            </div>
+        </div>
+            <div class="btn-group" role="group" style="width: 100%;">
+                <a class="btn btn-default btn-as-bottom" href="/zh/Account/Login?returnurl=%2F" style="width:95px;">登录</a>
+                <a class="btn btn-default btn-as-bottom" href="/zh/Account/Register?returnurl=%2F" style="width:96px;">注册</a>
+            </div>
+        <!--用户信息栏 结束-->
+    </div><!--左上部 结束-->
+	
+    <!--左下部 开始-->
+    <div class="left_lower_frame" style="top: 120px;">
+		<!-- 比赛倒计时 -->
+		<div class="list-group main-list" style="display:none; margin: 15px 0;" id="CountMsg" class="HotDate">
+			<a class="list-group-item">
+				距离CSP第一轮:
+				<span id="csp_s1_d">??天</span>
+			</a>
+			<a class="list-group-item">
+				距离CSP第二轮:
+				<span id="csp_s2_d">??天</span>
+			</a>
+			<a class="list-group-item">
+				距离NOIP还有:
+				<span id="noip_d">??天</span>
+			</a>
+		</div>
+		<script type="text/javascript">
+			function getRTime(){
+				var csps1EndTime = new Date('2021/09/19 00:00:00');
+				var csps2EndTime = new Date('2021/10/23 00:00:00');
+				var noipEndTime = new Date('2021/11/20 00:00:00');
+				var NowTime = new Date();
+				
+				if (1) {
+					var t = csps1EndTime.getTime() - NowTime.getTime();
+					var d = (t / 60 / 60 / 24 / 1000).toFixed(2);
+					document.getElementById("csp_s1_d").innerHTML = d + "天";
+				}
+				if (1) {			
+					var t = csps2EndTime.getTime() - NowTime.getTime();
+					var d = (t / 60 / 60 / 24 / 1000).toFixed(2);
+					document.getElementById("csp_s2_d").innerHTML = d + "天";
+				}
+				if (1) {			
+					var t = noipEndTime.getTime() - NowTime.getTime();
+					var d = (t / 60 / 60 / 24 / 1000).toFixed(2);
+					document.getElementById("noip_d").innerHTML = d + "天";
+				}
+			}
+			setInterval(getRTime,1000);
+		</script>
+		
+        <!--左侧导航栏 开始-->
+        <div class="list-group main-list" style="margin: 15px 0;">
+
+            <a href="/"
+               class="list-group-item active">
+                <span class="glyphicon glyphicon-home"></span>　系统首页
+            </a>
+
+            <a href="/zh/Problem"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-pencil"></span>　练习题库
+            </a>
+			
+			<!--
+            <a href="/zh/Course"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-book"></span>　训练指南
+            </a>
+			-->
+
+            <a href="/zh/Contest"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-th-list"></span>　考试列表
+            </a>
+
+            <a href="/zh/Submission?native=1"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-saved"></span>　判题结果
+            </a>
+
+            
+
+            <!-- <a href="/zh/Discussion" -->
+			<a href="#"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-comment"></span>　信息发布
+            </a>
+
+            <a href="/zh/Statistic/RankList"
+               class="list-group-item ">
+                <span class="glyphicon glyphicon-stats"></span>　解题排行
+            </a>
+
+        </div>
+        <!--左侧导航栏 结束-->
+        <!--快速跳转 开始-->
+        <div class="input-group" style="margin-bottom: 15px;">
+            <input id="InputQuickJumpId" type="text" class="form-control" placeholder="题目编号 or 名称">
+            <span class="input-group-btn">
+                <button id="ButtonGo" type="submit" class="btn btn-default">Go</button>
+                <script language="javascript" type="text/javascript">
+                    $("#InputQuickJumpId").keydown(function(e) {
+                        if (e.keyCode == 13) {
+                            $("#ButtonGo").click();
+                        }
+                    });
+                    $("#ButtonGo").click(function() {
+						var qj_text = $("#InputQuickJumpId").val().trim();
+                        if (qj_text == "") return;
+						if (qj_text.match(/[^0-9]+/)) {
+							//认真搜索
+							if (qj_text.length > 2 && qj_text[0] == '"' && qj_text[qj_text.length - 1] == '"') {
+								qj_text = qj_text.substring(1, qj_text.length - 1);//强制搜索数字时去掉引号
+							}
+							$('#QuickProbTitle').val(qj_text);
+							var f = $("form[id=QuickSearchContentForm]");
+							f.submit();
+							return;
+						} else {
+							//直接跳转
+							var url_prefix = '/zh/Problem/Details';
+							url_prefix = url_prefix.replace(/[0-9]+/, "");
+							if (url_prefix[url_prefix.length - 1] != '/') {
+								url_prefix += '/';
+							}
+							url_prefix = url_prefix + qj_text;
+							location.href = url_prefix;
+							//location.href = "/zh/Problem/Details?id=" + $("#InputQuickJumpId").val();
+						}
+                    });
+                </script>
+            </span>
+        </div>
+
+        <!-- 快速跳转兼容搜索功能，把搜索页面抄过来隐藏只为了一个form，但必须保证id都是不冲突的 -->
+<form action="/zh/Problem/SearchResults" hidden="hidden" id="QuickSearchContentForm" method="post"><input name="__RequestVerificationToken" type="hidden" value="5wn7PYKidntS2CrlwQtTkaIqcJsEMYuRmX7fe-gpfCJm8K5pnASiIyzIjkOopx1LBNJCR3do8zx0KqK4ogy5oqsJBE3CzAsKtgptfexEhqs1" /><input id="QuickPage" name="Page" type="hidden" value="0" />            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="">题目名称</label>
+                    <div class="col-md-10">
+                        <input id="QuickProbTitle" name="ProbTitle" type="text" placeholder="请输入所包含的文本" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="">来源</label>
+                    <div class="col-md-10">
+                        <input id="QuickSource" name="Source" type="text" placeholder="请输入所包含的文本" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id='QuickSubmitAndSearch' type="submit" value="检索" class="btn btn-default" />
+                        <input type="button" value="取消" class="btn btn-default" onclick="history.go(-1)" />
+                    </div>
+                </div>
+            </div>
+</form>
+
+        <!--快速跳转 结束-->
+        <!--语言切换 开始-->
+        <div>
+
+            <div id="DivLanguageSelector" class="link-transparent">
+                <a href="http://42.247.7.121/zh" class="no-message">
+                    <img src="/Content/Images/Languages/zh.png" style="width: 16px; height: 11px" /> 中文&nbsp;
+                </a>
+                <a href="http://42.247.7.121/ja" class="no-message">
+                    <img src="/Content/Images/Languages/ja.png" style="width: 16px; height: 11px" /> 日本語&nbsp;
+                </a>
+                <a href="http://42.247.7.121/en" class="no-message">
+                    <img src="/Content/Images/Languages/en.png" style="width: 16px; height: 11px" /> English&nbsp;
+                </a>
+            </div>
+        </div>
+        <!--语言切换 结束-->
+    </div><!--左下部 结束-->
+    <!--页面右部-->
+    <div class="right_frame panel panel-default panel-transparent">
+        <!--页面路径 开始-->
+        <div id="DivWebPath" class="panel-heading ts_breadcrumb">
+            <li>首页</li>
+        </div>
+        <nav id="NavMenubar" class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <div class="panel-heading ts_breadcrumb">
+                        <li>首页</li>
+                    </div>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class=active><a href="/"><span class="glyphicon glyphicon-home"></span>　系统首页</a></li>
+                        <li ><a href="/zh/Problem"><span class="glyphicon glyphicon-pencil"></span>　练习题库</a></li>
+                        <li ><a href="/zh/Contest"><span class="glyphicon glyphicon-th-list"></span>　考试列表</a></li>
+                        <li ><a href="/zh/Submission"><span class="glyphicon glyphicon-saved"></span>　判题结果</a></li>
+                        <li ><a href="/zh/Discussion"><span class="glyphicon glyphicon-comment"></span>　信息发布</a></li>
+                        <li ><a href="/zh/Statistic/RankList"><span class="glyphicon glyphicon-stats"></span>　解题排行</a></li>
+                            <hr style="margin: 5px 0" />
+                            <li ><a href="/zh/Account/Login"><span class=" glyphicon glyphicon-arrow-right"></span>　登录</a></li>
+                            <li ><a href="/zh/Account/Register"><span class="glyphicon glyphicon-play"></span>　注册</a></li>
+                    </ul>
+
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--页面路径 结束-->
+        <!--主面板 开始-->
+        <div class="main_panel panel-body panel-outer">
+            <!--选项卡-->
+
+            <!--正文-->
+            <div class="ts_context bg-white ts_context-notabs">
+                
+
+
+<link href="/Styles/PageStyles/HomeIndex.css" rel="stylesheet" />
+
+            <div class="alert alert-info" role="alert" style="padding: 7px 10px; margin-bottom:  8px">
+                    <font size="3" >用我和我们的努力，照亮2022！</font> (2021-12-31)
+            </div>
+
+
+
+<div class="jumbotron" style="text-align: center; background: #fbfbfb; margin-bottom: 15px; padding: 30px 30px; margin-top: 12px">
+    <img src="/Content/Images/Site/logo_nkoj.png" style="max-width: 680px; width: 100%; height: auto;" />
+</div>
+
+<div class="row" style="padding-left: 20px; margin-bottom: 20px;">
+    <!-- 本月解题排行 -->
+    <div class="col-md-3 col-sm-6">
+        <h4>本月解题排行 <span id="BtnMoreRank" class="label pointer btn-more">more</span></h4>
+        <table class="table list-hover" id="ranklist-home">
+            <thead>
+                <tr>
+                    <th data-sort="int">
+                        #
+                    </th>
+                    <th data-sort="string">
+                        用户名
+                    </th>
+                    <th data-sort="int">
+                        解题数
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                        <tr >
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=MYFJCHX">
+                                    <span >
+                                        
+                                        MYFJCHX
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                162
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                2
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=nywangyuanbo2022">
+                                    <span >
+                                        
+                                        nywangyuanbo2022
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                139
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                3
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=CYCn">
+                                    <span >
+                                        
+                                        CYCn
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                87
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                4
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=rq_liqizhen">
+                                    <span >
+                                        
+                                        rq_liqizhen
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                82
+                            </td>
+                        </tr>
+                        <tr >
+                            <td>
+                                5
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=G8723">
+                                    <span >
+                                        
+                                        G8723
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                80
+                            </td>
+                        </tr>
+                        <tr class=hidden-rank>
+                            <td>
+                                6
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=rqxiatian">
+                                    <span >
+                                        
+                                        rqxiatian
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                76
+                            </td>
+                        </tr>
+                        <tr class=hidden-rank>
+                            <td>
+                                7
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=147258369">
+                                    <span >
+                                        
+                                        147258369
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                70
+                            </td>
+                        </tr>
+                        <tr class=hidden-rank>
+                            <td>
+                                8
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=wanghaoran">
+                                    <span >
+                                        
+                                        wanghaoran
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                62
+                            </td>
+                        </tr>
+                        <tr class=hidden-rank>
+                            <td>
+                                9
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=lijiale">
+                                    <span >
+                                        
+                                        lijiale
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                61
+                            </td>
+                        </tr>
+                        <tr class=hidden-rank>
+                            <td>
+                                10
+                            </td>
+                            <td>
+                                <a class='link-default' href="/zh/Statistic/Profile?name=ttttT">
+                                    <span >
+                                        
+                                        ttttT
+                                        
+                                    </span>
+                                </a>
+                                
+                            </td>
+                            <td>
+                                59
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 近期新增用户 -->
+    <div class="col-md-3 col-sm-6">
+        <h4>欢迎新用户！ <span id="BtnMoreRecent" class="label pointer btn-more">more</span></h4>
+        <table class="table list-hover" >
+            <thead>
+                <tr>
+                    <th data-sort="int">
+                        #
+                    </th>
+                    <th data-sort="string">
+                        用户名
+                    </th>
+                    <th data-sort="string">
+                        真实姓名
+                    </th>
+                    <th>
+                        注册时间
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                        <tr >
+                            <td>6687</td>
+                            <td>rq_kyz</td>
+                            <td>周锴钺</td>
+                            <td>2022/1/23 9:02:36</td>
+                        </tr>
+                        <tr >
+                            <td>6686</td>
+                            <td>woshiyangxizhuo</td>
+                            <td>机房颓废行不行，快来看个性签名</td>
+                            <td>2022/1/23 9:02:30</td>
+                        </tr>
+                        <tr >
+                            <td>6685</td>
+                            <td>qinzijuncongming</td>
+                            <td>！</td>
+                            <td>2022/1/23 9:02:00</td>
+                        </tr>
+                        <tr >
+                            <td>6684</td>
+                            <td>rqdaiyan</td>
+                            <td>代言</td>
+                            <td>2022/1/23 8:27:01</td>
+                        </tr>
+                        <tr >
+                            <td>6683</td>
+                            <td>rqguozuming</td>
+                            <td>郭祖名</td>
+                            <td>2022/1/23 8:26:43</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6680</td>
+                            <td>kghdjlghh</td>
+                            <td>我叫秦子君，我是个聪明</td>
+                            <td>2022/1/22 15:58:13</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6673</td>
+                            <td>yuezheng_longya</td>
+                            <td>123</td>
+                            <td>2022/1/22 15:55:36</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6670</td>
+                            <td>rqpjl1109</td>
+                            <td>PJL_001</td>
+                            <td>2022/1/22 15:54:45</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6666</td>
+                            <td>147258147258</td>
+                            <td>李白</td>
+                            <td>2022/1/22 15:53:54</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6665</td>
+                            <td>nkrqtest760</td>
+                            <td>HUHE</td>
+                            <td>2022/1/22 15:53:23</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6664</td>
+                            <td>yuezheng_ling</td>
+                            <td>123</td>
+                            <td>2022/1/22 15:53:11</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6662</td>
+                            <td>Justin_MC</td>
+                            <td>白嘉庆小号</td>
+                            <td>2022/1/22 15:52:51</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6660</td>
+                            <td>z162506</td>
+                            <td>zzz</td>
+                            <td>2022/1/22 15:51:07</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6659</td>
+                            <td>rqchwch</td>
+                            <td>陈文超</td>
+                            <td>2022/1/22 15:46:06</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6658</td>
+                            <td>rqjjj</td>
+                            <td>剑走偏锋</td>
+                            <td>2022/1/22 15:45:55</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6657</td>
+                            <td>rqxiehaoxuan</td>
+                            <td>DZX</td>
+                            <td>2022/1/22 15:44:13</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6656</td>
+                            <td>RQTANGJINGJIAN</td>
+                            <td>GGTGG</td>
+                            <td>2022/1/22 15:44:09</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6655</td>
+                            <td>rqzhengqingyu</td>
+                            <td>郑清予</td>
+                            <td>2022/1/22 15:44:07</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6654</td>
+                            <td>rqhuangsiyao</td>
+                            <td>黄嗣尧</td>
+                            <td>2022/1/22 15:44:03</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6653</td>
+                            <td>nkrq_yangjiahe</td>
+                            <td>yangjiahe</td>
+                            <td>2022/1/22 15:43:57</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6652</td>
+                            <td>rq_lanyichen</td>
+                            <td>lyc</td>
+                            <td>2022/1/22 15:43:21</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6651</td>
+                            <td>rqlych</td>
+                            <td>刘一丞</td>
+                            <td>2022/1/22 15:43:21</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6650</td>
+                            <td>rqlisi</td>
+                            <td>lisi</td>
+                            <td>2022/1/22 15:42:58</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6649</td>
+                            <td>rqqze</td>
+                            <td>瞿子恩</td>
+                            <td>2022/1/22 15:42:54</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6648</td>
+                            <td>rqgongjunxi</td>
+                            <td>龚峻熙</td>
+                            <td>2022/1/22 15:42:53</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6647</td>
+                            <td>rqlunaclaw</td>
+                            <td>王一涵</td>
+                            <td>2022/1/22 15:42:30</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6646</td>
+                            <td>rqyuzihao</td>
+                            <td>余子浩</td>
+                            <td>2022/1/22 15:42:27</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6645</td>
+                            <td>rqtangzichen</td>
+                            <td>唐梓宸</td>
+                            <td>2022/1/22 15:42:16</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6644</td>
+                            <td>rq_yangjiahe</td>
+                            <td>yangjiahe</td>
+                            <td>2022/1/22 15:42:01</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6643</td>
+                            <td>rq_lingruicheng</td>
+                            <td>凌睿成</td>
+                            <td>2022/1/22 15:41:59</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6642</td>
+                            <td>rqzhanghaochun</td>
+                            <td>张浩淳</td>
+                            <td>2022/1/22 15:41:54</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6641</td>
+                            <td>rqhuangxinrui</td>
+                            <td>黄新芮</td>
+                            <td>2022/1/22 15:41:53</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6640</td>
+                            <td>rqlongwenbo</td>
+                            <td>龙文博</td>
+                            <td>2022/1/22 15:41:51</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6639</td>
+                            <td>rqLTY</td>
+                            <td>刘添翼</td>
+                            <td>2022/1/22 15:41:49</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6638</td>
+                            <td>rqmeibinyue</td>
+                            <td>梅缤月</td>
+                            <td>2022/1/22 15:41:48</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6637</td>
+                            <td>rqzouzixuan</td>
+                            <td>邹子轩</td>
+                            <td>2022/1/22 15:41:27</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6636</td>
+                            <td>zq_kyz</td>
+                            <td>周锴钺</td>
+                            <td>2022/1/22 10:12:32</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6635</td>
+                            <td>rq_liqizhen</td>
+                            <td>!李#其#臻!</td>
+                            <td>2022/1/22 10:06:32</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6634</td>
+                            <td>rqpanyaqi</td>
+                            <td>潘雅琪</td>
+                            <td>2022/1/22 9:52:07</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6633</td>
+                            <td>rqlijiaqi</td>
+                            <td>李嘉琪</td>
+                            <td>2022/1/22 9:51:08</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6632</td>
+                            <td>rqxyrtotf</td>
+                            <td>夏怡然</td>
+                            <td>2022/1/22 9:50:31</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6631</td>
+                            <td>rqcuijuncheng</td>
+                            <td>崔峻诚</td>
+                            <td>2022/1/22 9:49:46</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6630</td>
+                            <td>rq.quda</td>
+                            <td>瞿达</td>
+                            <td>2022/1/22 9:49:44</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6629</td>
+                            <td>rqliyanliang</td>
+                            <td>厉彦良</td>
+                            <td>2022/1/22 9:49:10</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6628</td>
+                            <td>RQ_LWX</td>
+                            <td>刘万鑫</td>
+                            <td>2022/1/22 9:48:58</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6627</td>
+                            <td>rqliziyuan</td>
+                            <td>李梓源</td>
+                            <td>2022/1/22 9:48:58</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6626</td>
+                            <td>RQ_lijunxi</td>
+                            <td>李俊熹</td>
+                            <td>2022/1/22 9:48:52</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6625</td>
+                            <td>RQWANGZIRUI</td>
+                            <td>王梓睿</td>
+                            <td>2022/1/22 9:48:44</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6624</td>
+                            <td>rqyangchumeng</td>
+                            <td>杨础萌</td>
+                            <td>2022/1/22 9:48:35</td>
+                        </tr>
+                        <tr class=hidden-recent style=display:none;>
+                            <td>6623</td>
+                            <td>rqwangyihan</td>
+                            <td>王一涵</td>
+                            <td>2022/1/22 9:48:35</td>
+                        </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 编译器版本 -->
+    <div id="DivCompilers" class="col-md-2 col-sm-4">
+        <h4>编译器版本</h4>
+        <ul class="home">
+            <li>GCC 4.8.1 ( I/O: <span class="text-danger">I64d or lld</span> )</li>
+            <li>G++ 4.8.1 ( I/O: <span class="text-danger">I64d or lld</span> )</li>
+            <li>JAVAC 1.8.0_31 ( 主类名: <span class="text-danger">Main</span> )</li>
+            <li>Free Pascal Compiler 2.6.4</li>
+            <li>Microsoft C# 4.0</li>
+            <li>默认不开启任何编译优化选项</li>
+            <li><a href="/zh/Home/Downloads">常用IDE及工具下载</a></li>
+        </ul>
+    </div>
+    
+    <!-- 系统维护记录 -->
+    <div id="DivDevLogs" class="col-md-4 col-sm-8">
+        <h4>系统维护记录 <span id="BtnMoreLog" class="label label-default pointer btn-more">more</span></h4>
+
+        <ul class="home">
+                <li>2021.12.30 修复一些bug，并调整<a onclick="multiple_detail_update_4();">一些设定</a></li>
+                <li>2021.12.15 新增和改进了一些<a onclick="multiple_detail_update_3();">小功能</a></li>
+                <li>2021.10.09 考试可以设置每题提交次数上限！</li>
+                <li>2021.10.08 考试题将希腊字母换成小写字母和带圈字母，上限=26*4=104。</li>
+                <li>2021.09.02 考试题目上限提升到50，编译器升级到C++14。</li>
+                <li>2021.01.24 考试列表中置顶显示参加过的考试。</li>
+                <li>2021.01.04 硬件性能大幅提升，可以同时评测更多程序（每份程序速度不变）。</li>
+                <li>2020.12.25 提交代码新增一些禁用关键词防止卡OJ。</li>
+                <li>2020.11.10 给OI赛制排名页面显示每个用户每道题的提交次数。</li>
+                <li>2020.07.15 发送站内信需要间隔20秒。</li>
+                <li class="hidden-log">2020.07.12 题解内容AC后才能查看，<span class="link-default" onclick="this.innerHTML='未AC时只能看到标题，减少抄袭现象。测试数据列表显示编号，教练账号未参加考试也可以查看其他人考试内的代码了。'">……    <a>展开</a></span></li>
+                <li class="hidden-log">2020.05.07 改进缤纷用户显示效果，新增缤纷管理页面</li>
+                <li class="hidden-log">2020.03.24 新增考试检索功能，<span class="link-default" onclick="this.innerHTML='修复无法进入改过密码的考试的bug，更改资深用户显示方式，新增缤纷用户'">……    <a>展开</a></span></li>
+                <li class="hidden-log">2020.02.13 实现了管理员对题目数据的批量操作功能</li>
+                <li class="hidden-log">2020.02.08 <a onclick="multiple_detail_update_2();">一些后端逻辑更新</a></li>
+                <li class="hidden-log">2020.01.24 <a onclick="multiple_detail_update();">一些前端细节更新</a></li>
+                <li class="hidden-log">2019.06.11 重磅大更新</li>
+                <li class="hidden-log">2018.05.27 为题面和讨论添加<a href="http://commonmark.org/help/">Markdown</a>支持</li>
+                <li class="hidden-log">2016.09.18 可按日期查询用户<a href="/zh/Statistic/SubmissionRecords?name=root">解题记录</a></li>
+                <li class="hidden-log">2016.05.12 提交代码的效率<a href="/zh/Problem/Statistics">统计与排名</a></li>
+                <li class="hidden-log">2016.05.11 增加加密考试功能</li>
+                <li class="hidden-log">2016.05.07 <a href="/zh/Statistic/Profile">用户页面</a>增加考试记录列表</li>
+                <li class="hidden-log">2016.05.05 用户自定义头像与背景</li>
+                <li class="hidden-log">2016.04.28 增加自定义SPJ模式</li>
+                <li class="hidden-log">2016.04.25 增加首页及考试公告</li>
+                <li class="hidden-log">2016.04.24 支持用户标记重要题目</li>
+                <li class="hidden-log">2016.02.05 增加英文、日文界面</li>
+                <li class="hidden-log">2016.02.01 增加部分得分模式</li>
+                <li class="hidden-log">2015.07.17 题目列表增加已通过标记</li>
+                <li class="hidden-log">2015.07.04 首页增加<a herf="#">本月解题排行榜</a></li>
+                <li class="hidden-log">2015.06.11 增加代码导出功能</li>
+                <li class="hidden-log">2015.06.10 新域名启用</li>
+                <li class="hidden-log">2015.06.06 增加代码检查功能</li>
+                <li class="hidden-log">2015.05.10 成功举办校ACM大赛</li>
+                <li class="hidden-log">2015.05.01 第一次内部系统测试</li>
+        </ul>
+        <script>
+            function multiple_detail_update_4() {
+                var content = "" +
+                    "<h3>考试</h3>" +
+                    "修复了正确输入密码却无法进入考试的bug。<br>" +
+                    "教练账号可以自由进入任意考试，并可以邀请用户进入考试。<br>" +
+                    "移除了‘机选试题’这种奇怪的考试组卷。（这东西真的有谁用过吗？）<br>" +
+                    "给考试新增‘正式比赛’和‘作业列表’的区分。（但实际上似乎并没有什么区别？）<br>" + 
+                    "<h3>提交评测</h3>" +
+                    "提交后自动跳转的页面改为该评测详情页面。（以前是跳转到提交记录列表，用户反复快速刷新会给服务器带来较大压力）。<br>" +
+                    "优化了提交记录列表的加载效率!（上次版本更新显然是个负优化，这次应该能比上次更新之前还快？）<br>" +
+                    "<h3>网站管理</h3>" +
+                    "管理员和教练员，可以在网站上临时开放注册(照旧)和关闭站内信(新增)。<br>" +
+                    "教练员发送站内信，可以和管理员一样不受约束。<br>" +
+                    "<h3>杂项</h3>" + 
+                    "在‘新增用户列表’处，表达了对新用户的欢迎。<br>" +
+                    "补充了一些页面的外文翻译。（nodgd水平有限，英语=瞎翻，日语=机翻）<br>" +
+                    "<br>" +
+                    "欢迎提出更多意见。<br>" +
+                    "<br><a href='/'>回到首页</a>" +
+                    "";
+                document.write(content);
+            }
+            function multiple_detail_update_3() {
+                var content = "" +
+                    "<h3>提交程序</h3>" +
+                    "危险关键词检测添加了反馈机制，提交时可以知道具体哪一句代码有危险关键词。<br>" +
+                    "考试结束后，提交程序不再受次数限制。<br>" +
+                    "<h3>考试</h3>" +
+                    "新增一种进入考试的方式：由管理员邀请。<br>" +
+                    "管理员可以查看和编辑进入考试的用户名单。<br>" +
+                    "<h3>重新定义\"资深用户\"</h3>" +
+                    "现在，资深用户只能由管理员指定，没有其他获得途径。即，不再是以前的\"达到400题自动晋升\"的规则。<br>" +
+                    "赋予资深权限的参考标准：获得过CSP-S或NOIP一等奖或者更高奖项。（各位教练可以根据学生实际情况决定是否赋予资深权限）<br>" +
+                    "管理员可以在网站上随时为用户设置该权限。（以前所有权限控制均需要由nodgd直接操作数据库，非常麻烦而且容易发生各种误操作，到时候导致删库跑路都来不及）<br>" +
+                    "资深权限：（照旧）其他用户的公开代码、题目讨论等内容，只能被资深用户可见；（新增）题目页面底部的题目来源，现在也要资深用户才能看见。<br>" +
+                    "欢迎提出更多意见。<br>" +
+                    "<h4>测试数据的操作</h4>" +
+                    "新增几种批量操作，包括一些迷之操作。（管理员们随时都可以去试一试，保证反人类）<br>" + 
+                    "貌似还略微提高了一点效率？批量修改时限等操作似乎比以前更快一点。（或者也可能肉眼感受不出来）<br>" + 
+                    "<br><a href='/'>回到首页</a>" +
+                    "";
+                document.write(content);
+            }
+            function multiple_detail_update_2() {
+                var content = "" +
+                    "<h1>一些后端逻辑更新</h1>" +
+                    "<h3>针对所有用户</h3>" +
+                    "解决了OI赛制排名页面卡顿的问题，现在OI赛制比ACM赛制加载得还稍微更流畅一些<br>" +
+                    "将考试中隐藏个人信息的逻辑从(考试正在进行)改为(考试处于封榜期间)<br>" +
+                    "提交记录页面和题目的统计页面，能看到(不在封榜期间的考试)的提交记录了<br>" +
+                    "题目的统计页面增加了去重功能，AC的每个用户只显示一条记录，但像1000,1002这样种有数千条提交记录的题会卡顿<br>" +
+                    "解决了C++语言在开头加上头文件stdio.h比不加时读入输出都快很多的问题，现在不加stdio.h也能有一样快的读入速度（本质上是自动在开头加头文件stdio.h）<br>" +
+                    "如果题目本身没有被隐藏，那么现在ACM赛制考试中提交也会显示每组数据的评测结果<br>" +
+                    "<h3>针对管理员和教练员：</h3>" +
+                    "拥有教练员权限的帐号，即使考试处于封榜期间，也能在上述两个地方看到原有的信息<br>" +
+                    "管理员重测题目时，可以只测某次比赛内这道题的提交记录<br>" +
+                    "修复了教练员自己未参加考试时不能查看考试内记录的问题<br>" +
+                    "<br><a href='/'>回到首页</a>" +
+                    "";
+                document.write(content);
+            }
+            function multiple_detail_update() {
+                var content = "" +
+                    "<h1>一些前端细节更新</h1>" +
+                    "<h3>针对所有用户界面</h3>" +
+                    "修复题目列表点击“加载更多”时会重复显示一道题的bug<br>" +
+                    "现在需要“资深用户”才能查看公开代码，目前设定为通过题目数量达到400后自动升级为资深用户<br>" +
+                    "考试题目页面增加了跳转到题库题目的快捷按钮<br>" +
+                    "题库点击题目时，默认在新标签页打开<br>" +
+                    "修复了在题目页面时，左边的快速跳题不能使用的bug<br>" +
+                    "左下角快速跳题现在兼容题目名称搜索功能了<br>" +
+                    "发贴字数限制：普通用户5120，资深和教练51200，避免考试中的刷屏现象<br>" +
+                    "回帖楼层数限制：考试中超过50层楼的贴子普通用户不能回复，避免考试中的刷屏现象<br>" +
+                    "修复了查看代码时，双字节运算符(<=,++,->等)背景泛白的缺陷<br>" +
+                    "查看讨论、题解、信息发布页面时，可以手动切换markdown格式开关，旧版OJ的题解能正常阅读了<br>" +
+                    "站内信页面也增加了可以手动切换markdown格式的开关，并提供了markdown编辑器的编辑方式<br>" +
+
+                    "<h3>针对管理员界面：</h3>" +
+                    "修复了用户代码公开/非公开的可见性<br>" +
+                    "修复SPJ显示C语言标签带有&amp;nbsp;的bug<br>" +
+                    "测试数据时限、空限、分值的快速编辑（仅前端界面，未实现功能）<br>" +
+                    "在题目页面增加了一个重测此题的按钮<br>" +
+                    "网站的所有多行输入框，都解除了宽度限制，且增加了默认宽度和高度<br>" +
+
+                    "<h3>教练员帐号：</h3>" +
+                    "新增教练员权限等级，可以查看所有人代码，未来还计划加入一些其他功能（例如添加考试等）。需要获得权限的请联系nodgd。<br>" +
+                    "<br><a href='/'>回到首页</a>" +
+                    "";
+                document.write(content);
+            }
+        </script>
+    </div>
+</div>
+
+<div style="text-align: left; border-top: 1px solid #eee; padding: 12px 5px;">
+    <span id="SpanCopyright">Copyright &copy; TouchStone 2015-2022</span>
+    <span id="SpanAuthor">Designed by <a href="/zh/Statistic/Profile?name=alpc104">万山川 (alpc104)</a></span>
+</div>
+
+<script type="text/javascript">
+    $("#BtnMoreRank").bind("click", function () {
+        $("#BtnMoreRank").fadeOut();
+        $(".hidden-rank").fadeIn(700);
+        $('.main_panel').scrollTop($('.main_panel').scrollTop() + 200);
+    });
+    $("#BtnMoreRecent").bind("click", function () {
+        $("#BtnMoreRecent").fadeOut();
+        $(".hidden-recent").fadeIn(700);
+        $('.main_panel').scrollTop($('.main_panel').scrollTop() + 200);
+    });
+    $("#BtnMoreLog").bind("click", function () {
+        $("#BtnMoreLog").fadeOut();
+        $(".hidden-log").fadeIn(500);
+        $('.main_panel').scrollTop($('.main_panel').scrollTop() + 200);
+    });
+</script>
+            </div>
+        </div><!--主面板 结束-->
+    </div>
+
+    <!--JS代码 开始-->
+    <div id="outdated"></div>
+    <script src="/Scripts/Site.js"></script>
+    <script>
+    addLoadEvent(function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'transform',
+            languagePath: '/Content/OutdatedBrowser/lang/zh.html'
+        })
+    });
+    </script>
+
+    <script src="/Scripts/stupidtable.min.js"></script>
+    <script type="text/javascript">
+    $(function() {
+        $("table").stupidtable();
+
+    });
+    </script>
+    
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?e0a4bdbf979e1fd70bf5aa44cbab118d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script src="/Scripts/prism.js"></script>
+    <!--JS代码 结束-->
+
+</body>
+</html>
+<script language="javascript">
+    //缤纷用户炫彩功能
+    var blink_color = null;
+    var toward_color = [0, 0, 0];
+    function to_hex_2(x) {
+        return (parseInt(x / 16)).toString(16) + (x % 16).toString(16);
+    }
+    function changeColor() {
+        var objs = document.getElementsByName("blink");
+        if (objs.length == 0) {
+            return;
+        }
+        if (blink_color == null) {
+            blink_color = [
+                parseInt(Math.random() * 255.9),
+                parseInt(Math.random() * 255.9),
+                parseInt(Math.random() * 255.9)
+            ];
+        }
+        if (blink_color[0] == toward_color[0] && blink_color[1] == toward_color[1] && blink_color[2] == toward_color[2]) {
+            toward_color[0] = parseInt(Math.random() * 255.9);
+            toward_color[1] = parseInt(Math.random() * 255.9);
+            toward_color[2] = parseInt(Math.random() * 255.9);
+        }
+        var i = parseInt(Math.random() * 2.99);
+        var j = toward_color[i] - blink_color[i];
+        j = j > 16 ? 16 : j;
+        j = j < -16 ? -16 : j;
+        blink_color[i] += j;
+        var color_str = "#" + to_hex_2(blink_color[0]) + to_hex_2(blink_color[1]) + to_hex_2(blink_color[2]);
+        //console.log(color_str);
+        for (var i = 0; i < objs.length; i++) {
+            objs[i].style.color = color_str;
+        }
+    }
+    setInterval("changeColor()", 300);
+</script>
+<script>
+    //防止剧透的提示功能
+	var func = window.onload;
+    window.onload = function(){
+        var objs = document.getElementsByName('mouseoverresp');
+        for (var i = 0; i < objs.length; i ++) {
+            objs[i].onmouseover = function() {this.style.backgroundColor='#ffffff';};
+            objs[i].onmouseout = function() {this.style.backgroundColor='#555';};
+            objs[i].style.backgroundColor="#555";
+        }
+		func();
+    }
+	//自适应图片大小
+	function dynamic_image_scale() {
+		var imgs = document.getElementsByName("dynamic_image");
+		for (var i = 0; i < imgs.length; i ++) {
+			var s = Math.round(Math.random() * 30) + 10;
+			var cssText = "zoom:" + s + "%;";
+			imgs[i].style.cssText = cssText;
+		}
+	}
+	dynamic_image_scale();
+	setInterval(dynamic_image_scale, 500);
+    
+    //强行允许换行
+    var onload_old = window.onload;
+    window.onload = function () {
+        var objs = document.getElementsByName('ableendl');
+        for (var i = 0; i < objs.length; i ++) {
+            objs[i].innerHTML = objs[i].innerHTML.replace(/【换行】/g, '<br>');
+        }
+        onload_old();
+    }
+</script>
