@@ -3,6 +3,104 @@
   <body>
     <h1>欢迎来到liubinze的小站！</h1>
     <h2>索引</h2>
-    <a href="/DownloadArea/">下载区</a>
+    <h1><a href="/DownloadArea/">下载区</a></h1>
+    <h1><span name="shitoverresp"><a href="https://www.chunkbase.com/apps/seed-map"><font color=996600>Chunkbase</font></a></span></h1>
+    <h1><span name="shitoverresp"><a href="https://www.minecraft.net/zh-hans"><bold><font color=996600>Minecraft</font></bold></a></span></h1>
+    <h1><span name="shitoverresp"><a href="https://minecraft.fandom.com/zh"><bold><font color=996600>Minecraft Wiki</font></bold></a></span></h1>
+    <h1><span name="shitoverresp"><a href="https://space.bilibili.com/11602644"><bold><font color=996600>Minecraft in bilibili</font></bold></a></span></h1>
+    <h1><span name="shitoverresp"><a href="https://afdian.net/p/0164034c016c11ebafcb52540025c377"><bold><font color=996600>Plain Craft Launcher II!</font></bold></a></span></h1>
+    <bold><h1><span name="mouseoverresp"><font color=ffffff>滚</font><font color=cccccc>滚</font><font color=999999>滚</font><font color=666666>滚</font><font color=333333>滚</font><font color=000000>滚！</font></span></h1></bold>
+    <marquee behavior="alternate"><div onclick="akioi(this)"><span name="blink">请点我！</span></div></marquee>
+    <script>
+      var n=0;
+      function akioi(obj)
+      {
+        if((n=1-n)%2==0)
+          obj.outerHTML="<div onclick=\"akioi(this)\"><span name=\"blink\"><h6>滚！</h6></span></div>";
+        else
+          obj.outerHTML="<div onclick=\"akioi(this)\"><span name=\"blink\"><h1>滚！</h1></span></div>";
+      }
+    </script>
+    <script>
+      var func=window.onload;
+      window.onload=function()
+      {
+        var objs=document.getElementsByName('shitoverresp');
+        for(var i=0;i<objs.length;i++)
+        {
+          objs[i].onmouseover=function()
+          {
+            this.style.backgroundColor='#ffffff';
+          };
+          objs[i].onmouseout=function()
+          {
+            this.style.backgroundColor='#996600';
+          };
+          objs[i].style.backgroundColor="#996600";
+        }
+        func();
+      }
+    </script>
+    <script>
+      var func=window.onload;
+      window.onload=function()
+      {
+        var objs=document.getElementsByName('mouseoverresp');
+        for(var i=0;i<objs.length;i++)
+        {
+          objs[i].onmouseover=function()
+          {
+            this.style.backgroundColor='#ffffff';
+          };
+          objs[i].onmouseout=function()
+          {
+            this.style.backgroundColor='#000';
+          };
+          objs[i].style.backgroundColor="#000";
+        }
+        func();
+      }
+    </script>
+    <script language="javascript">
+      var blink_color=null;
+      var toward_color=[0, 0, 0];
+      function to_hex_2(x)
+      {
+        return (parseInt(x/16)).toString(16)+(x%16).toString(16);
+      }
+      function changeColor()
+      {
+        var objs=document.getElementsByName("blink");
+        if(objs.length==0)
+        {
+          return;
+        }
+        if(blink_color==null)
+        {
+          blink_color=[
+            parseInt(Math.random()*255.9),
+            parseInt(Math.random()*255.9),
+            parseInt(Math.random()*255.9)
+          ];
+        }
+        if(blink_color[0]==toward_color[0]&&blink_color[1]==toward_color[1]&&blink_color[2]==toward_color[2])
+        {
+          toward_color[0]=parseInt(Math.random()*255.9);
+          toward_color[1]=parseInt(Math.random()*255.9);
+          toward_color[2]=parseInt(Math.random()*255.9);
+        }
+        var i=parseInt(Math.random()*2.99);
+        var j=toward_color[i]-blink_color[i];
+        j=j>16?16:j;
+        j=j<-16?-16:j;
+        blink_color[i]+=j;
+        var color_str="#"+to_hex_2(blink_color[0])+to_hex_2(blink_color[1])+to_hex_2(blink_color[2]);
+        for(var i=0;i<objs.length;i++)
+        {
+          objs[i].style.color=color_str;
+        }
+      }
+      setInterval("changeColor()",300);
+    </script>
   </body>
 </html>
