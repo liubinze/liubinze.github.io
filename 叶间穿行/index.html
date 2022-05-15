@@ -8,15 +8,12 @@
   </head>
   <body>
     <a href="/">返回首页</a>
-    <div id="gamepad"></div>
-    <script language="javascript">
-      const gamePad = document.getElementById("gamepad");
+    <div id="BannerGame"></div>
+    <script>
+      const gamePad = document.getElementById("BannerGame");
       const gameInst = new BannerGameSpring2022(gamePad);
-      const start = async () => {
-        await gameInst.init();
-        await gameInst.start();
-      };
-      start();
+      gameInst.init();
+      gameInst.start();
     </script>
   </body>
 </html>
