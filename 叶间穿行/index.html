@@ -12,8 +12,11 @@
     <script>
       const gamePad = document.getElementById("BannerGame");
       const gameInst = new BannerGameSpring2022(gamePad);
-      await gameInst.init();
-      await gameInst.start();
+      const start = async() => {
+        await gameInst.init();
+        await gameInst.start();
+      }
+      start();
     </script>
   </body>
 </html>
