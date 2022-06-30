@@ -1,0 +1,9 @@
+8
+#define A b
+#define AA c
+#define AAA A AA
+A
+AA
+AAA
+#undef AA
+AAA AA A

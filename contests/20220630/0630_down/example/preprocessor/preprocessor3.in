@@ -1,0 +1,5 @@
+4
+#define A A B C
+#define B xxx
+#define C yyy A B
+A

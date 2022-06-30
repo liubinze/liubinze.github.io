@@ -1,0 +1,6 @@
+5
+#define BEGIN {
+#define END }
+#define INTEGER int
+class C BEGIN INTEGER x; END;
+INTEGER main() BEGIN C c; END
